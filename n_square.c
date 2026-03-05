@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:16:38 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 03:26:04 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 03:35:10 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,8 @@ void	sort_n_square(t_stack *a, t_stack *b)
 	min_pos = find_min_position(max_index, min_index, get_stack_length(a));
 	min_ops = find_min_ops(max_index, min_index, get_stack_length(a));
 	//printf("\nmin_index = %d\nmax_index = %d\n min_pos = %d\nmin_ops = %d", min_index, max_index, min_pos, min_ops);
-	
+	if (min_pos == 0)
+		handle_min(a, min_ops);
 }
 
 int	main(void)

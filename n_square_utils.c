@@ -6,9 +6,11 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 03:02:34 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 03:22:50 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 03:36:24 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	find_min4_index(int a, int b, int c, int d)
 {
@@ -59,4 +61,14 @@ int	find_min_ops(int max, int min, int length)
 	dst_to_end_max = length - max;
 	minimum = find_min4(min, max, dst_to_end_min, dst_to_end_max);
 	return (minimum);
+}
+
+int	handle_min(t_stack *a, int min_ops)
+{
+	int	i;
+
+	i = 0;
+	while (i++ < min_ops)
+		ra(a);
+	
 }
