@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_functions.c                                      :+:      :+:    :+:   */
+/*   rr_functions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/05 22:18:16 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/05 22:56:54 by gargrigo         ###   ########.fr       */
+/*   Created: 2026/03/05 22:57:37 by gargrigo          #+#    #+#             */
+/*   Updated: 2026/03/05 22:57:40 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stddef.h>
 #include <unistd.h>
 
-static void	swap(t_stack *stack)
+static void	rrev(t_stack *stack)
 {
-	t_node	*first;
-	t_node	*second;
+	t_node	*prev;
+	t_node	*last;
 
 	if (!stack || !stack->top || !stack->top->next)
 		return ;
-	first = stack->top;
-	second = stack->top->next;
-	first->next = second->next;
-	second->next = first;
-	stack->top = second;
+	prev = NULL;
+	last = stack->top;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = stack->top;
+	stack->top = last;
 }
 
-void	sa(t_stack *a)
+void	rra(t_stack *a)
 {
-	swap(a);
-	write(1, "sa\n", 3);
+	rrev(a);
+	write(1, "rra\n", 4);
 }
 
-void	sb(t_stack *b)
+void	rrb(t_stack *b)
 {
-	swap(b);
-	write(1, "sb\n", 3);
+	rrev(b);
+	write(1, "rrb\n", 4);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
+	rrev(a);
+	rrev(b);
+	write(1, "rrr\n", 4);
 }
