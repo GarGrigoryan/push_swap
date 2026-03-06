@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 03:02:34 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 03:36:24 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 19:22:15 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,38 @@ int	find_min_ops(int max, int min, int length)
 	return (minimum);
 }
 
-int	handle_min(t_stack *a, int min_ops)
+void	sort_3(t_stack *a)
 {
-	int	i;
+	int	first = a->top->num;
+	int	second = a->top->next->num;
+	int	third = a->top->next->next->num;
 
-	i = 0;
-	while (i++ < min_ops)
+	if (first > second && second < third && first < third)
+		sa(a);
+	else if (first > second && second > third)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (first > second && second < third && first > third)
 		ra(a);
-	
+	else if (first < second && second > third && first < third)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && second > third && first > third)
+		rra(a);
+}
+
+int	find_min_position(int max, int min, int length)
+{
+	int	minimum;
+	int	dst_to_end_min;
+	int	dst_to_end_max;
+
+	dst_to_end_min = length - min;
+	dst_to_end_max = length - max;
+	minimum = find_min4_index(min, max, dst_to_end_min, dst_to_end_max);
+	return (minimum);
 }

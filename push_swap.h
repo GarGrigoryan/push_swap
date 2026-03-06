@@ -6,12 +6,13 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:34:31 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 03:23:08 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 19:24:39 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include <stddef.h>
 
 typedef struct s_node
 {
@@ -38,6 +39,13 @@ void	rrr(t_stack *a, t_stack *b);
 void	print_stack(t_stack *stack);
 int		find_min4_index(int a, int b, int c, int d);
 int		find_min_ops(int max, int min, int length);
+int		find_min_position(int max, int min, int length);
 int		find_min4(int a, int b, int c, int d);
+int		handle_min_ra(t_stack *a, t_stack *b, int min_ops);
+int		handle_min_rra(t_stack *a, t_stack *b, int min_ops);
+int		handle_max_rra(t_stack *a, t_stack *b, int min_ops);
+int		handle_max_ra(t_stack *a, t_stack *b, int min_ops);
+void	*ft_memset(void *s, int c, size_t n);
+void	sort_3(t_stack *a);
 
 #endif
