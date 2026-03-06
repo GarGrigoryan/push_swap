@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 03:02:34 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 20:12:15 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 21:35:19 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ int	find_min_ops(int min, int length)
 
 void	sort_3(t_stack *a)
 {
-	int	first = a->top->num;
-	int	second = a->top->next->num;
-	int	third = a->top->next->next->num;
+	int	first;
+	int	second;
+	int	third;
 
+	first = a->top->num;
+	second = a->top->next->num;
+	third = a->top->next->next->num;
 	if (first > second && second < third && first < third)
 		sa(a);
 	else if (first > second && second > third)
@@ -46,4 +49,3 @@ void	sort_3(t_stack *a)
 	else if (first < second && second > third && first > third)
 		rra(a);
 }
-

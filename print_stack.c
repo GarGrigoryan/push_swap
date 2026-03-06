@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 19:16:17 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 01:22:05 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 21:39:37 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 void	print_stack(t_stack *stack)
 {
-	t_node *temp;
+	t_node	*temp;
+
 	if (!stack || !stack->top)
 		return ;
 	temp = stack->top;

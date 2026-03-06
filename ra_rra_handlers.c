@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 17:32:01 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 20:08:32 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 21:38:31 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	handle_min_ra(t_stack *a, t_stack *b, int min_ops)
 	i = 0;
 	while (i++ < min_ops)
 		ra(a);
-	pb(a,b);
+	pb(a, b);
 	return (min_ops);
 }
 
@@ -30,6 +30,6 @@ int	handle_min_rra(t_stack *a, t_stack *b, int min_ops)
 	i = 0;
 	while (i++ < min_ops)
 		rra(a);
-	pb(a,b);
+	pb(a, b);
 	return (min_ops);
 }
