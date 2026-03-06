@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:16:38 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 19:24:11 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/06 20:15:36 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,77 +59,28 @@ int	find_min_index(t_stack *a)
 	return (min_index);
 }
 
-int	find_max_index(t_stack *a)
-{
-	int		max;
-	int		max_index;
-	t_node	*temp;
-
-	if (!a || !a->top)
-		return (-1);
-	temp = a->top;
-	max = a->top->num;
-	while (temp->next)
-	{
-		if (max < temp->next->num)
-			max = temp->next->num;
-		temp = temp->next;
-	}
-	max_index = 0;
-	temp = a->top;
-	while (temp)
-	{
-		if (temp->num == max)
-			return (max_index);
-		temp = temp->next;
-		max_index++;
-	}
-	return (max_index);
-}
-
-static int	finalizer(t_stack *a, t_stack *b)
-{
-	int	count;
-
-	count = 0;
-	while (get_stack_length(b))
-	{
-		pa(a,b);
-		count++;
-	}
-	rra(a);
-	rra(a);
-	rra(a);
-	return (count + 3);
-}
-
 void	sort_n_square(t_stack *a, t_stack *b)
 {
 	int	min_index;
-	int	max_index;
-	int	min_pos;
+	int	stack_len;
 	int	min_ops;
 	int	count_functions[11];
 
 	ft_memset(count_functions, 0, sizeof(count_functions));
 	while (get_stack_length(a) > 3)
 	{
+		stack_len = get_stack_length(a);
 		min_index = find_min_index(a);
-		max_index = find_max_index(a);
-		min_pos = find_min_position(max_index, min_index, get_stack_length(a));
-		min_ops = find_min_ops(max_index, min_index, get_stack_length(a));
-		// printf("\nmin_index = %d\nmax_index = %d\n min_pos = %d\nmin_ops = %d", min_index, max_index, min_pos, min_ops);
-		if (min_pos == 0)
-			count_functions[0] += handle_min_ra(a, b, min_ops);
-		else if(min_pos == 3)
-			count_functions[3] += handle_min_rra(a, b, min_ops);
-		else if(min_pos == 1)
-			count_functions[0] += handle_max_ra(a, b, min_ops);
-		else if(min_pos == 2)
-			count_functions[3] += handle_max_rra(a, b, min_ops);
+		min_ops = find_min_ops(min_index, stack_len);
+		if (min_index <= stack_len / 2)
+			handle_min_ra(a, b, min_ops);
+		else
+			handle_min_rra(a, b, min_ops);
+		//printf("\nmin_index = %d\n min_ops = %d", min_index, min_ops);
 	}
 	sort_3(a);
-	finalizer(a,b);
+	while (b->top)
+		pa(a, b);
 	// printf("\ncount = %d\n", count_functions[3]);
 }
 
@@ -144,7 +95,7 @@ int	main(void)
 	t_node	*node5;
 	t_node	*node6;
 	t_node	*temp;
-	int		i = 0;
+	//int		i = 0;
 
 	node1 = malloc(sizeof(t_node));
 	node2 = malloc(sizeof(t_node));
@@ -153,15 +104,15 @@ int	main(void)
 	node5 = malloc(sizeof(t_node));
 	node6 = malloc(sizeof(t_node));
 	stack = malloc(sizeof(t_stack));
-	b = malloc(sizeof(stack));
+	b = malloc(sizeof(t_stack));
+	b->top = NULL;
 
-
-	node1->num = 8;
-	node2->num = 10;
+	node1->num = 1248;
+	node2->num = -10;
 	node3->num = 6;
-	node4->num = 5;
-	node5->num = 24;
-	node6->num = 12;
+	node4->num = -5;
+	node5->num = 1124;
+	node6->num = 0;
 
 	node1->next = node2;
 	node2->next = node3;
@@ -180,11 +131,6 @@ int	main(void)
 	// count_operations(find_max_index(stack), find_min_index(stack), get_stack_length(stack));
 	//printf("max = %d", find_max(stack));
 	sort_n_square(stack, b);
-	printf("\n a = \n");
-	print_stack(stack);
-	printf("\nb = \n");
-	print_stack(b);
-	printf("\n sorted a = \n");
 	print_stack(stack);
 
 	free(node1);
