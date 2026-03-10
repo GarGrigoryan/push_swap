@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rr_functions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garik <garik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:57:37 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/05 22:57:40 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/11 02:07:19 by garik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,24 @@ static void	rrev(t_stack *stack)
 	stack->top = last;
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, t_ops *ops)
 {
 	rrev(a);
+	ops->rra++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *b, t_ops *ops)
 {
 	rrev(b);
+	ops->rrb++;
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, t_ops *ops)
 {
 	rrev(a);
 	rrev(b);
+	ops->rrr++;
 	write(1, "rrr\n", 4);
 }

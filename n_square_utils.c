@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   n_square_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garik <garik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 03:02:34 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 21:35:19 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/11 02:14:47 by garik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	find_min_ops(int min, int length)
 		return (dst_to_end_min);
 }
 
-void	sort_3(t_stack *a)
+void	sort_3(t_stack *a, t_ops *ops)
 {
 	int	first;
 	int	second;
@@ -33,19 +33,19 @@ void	sort_3(t_stack *a)
 	second = a->top->next->num;
 	third = a->top->next->next->num;
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(a, ops);
 	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		sa(a, ops);
+		rra(a, ops);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(a, ops);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(a, ops);
+		ra(a, ops);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(a, ops);
 }

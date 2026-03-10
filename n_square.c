@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   n_square.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garik <garik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:16:38 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 21:38:13 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/11 02:14:05 by garik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,27 +59,25 @@ int	find_min_index(t_stack *a)
 	return (min_index);
 }
 
-void	sort_n_square(t_stack *a, t_stack *b)
+void	sort_n_square(t_stack *a, t_stack *b, t_ops *ops)
 {
 	int	min_index;
 	int	stack_len;
 	int	min_ops;
-	int	count_functions[11];
 
-	ft_memset(count_functions, 0, sizeof(count_functions));
 	while (get_stack_length(a) > 3)
 	{
 		stack_len = get_stack_length(a);
 		min_index = find_min_index(a);
 		min_ops = find_min_ops(min_index, stack_len);
 		if (min_index <= stack_len / 2)
-			handle_min_ra(a, b, min_ops);
+			handle_min_ra(a, b, min_ops, ops);
 		else
-			handle_min_rra(a, b, min_ops);
+			handle_min_rra(a, b, min_ops, ops);
 	}
-	sort_3(a);
+	sort_3(a, &ops);
 	while (b->top)
-		pa(a, b);
+		pa(a, b, &ops);
 }
 
 // int	main(void)

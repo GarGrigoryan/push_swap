@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   p_functions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garik <garik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:22:48 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 18:53:54 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/11 02:06:05 by garik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_ops *ops)
 {
 	t_node	*temp;
 
@@ -23,10 +23,11 @@ void	pa(t_stack *a, t_stack *b)
 	b->top = b->top->next;
 	temp->next = a->top;
 	a->top = temp;
+	ops->pa++;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_ops *ops)
 {
 	t_node	*temp;
 
@@ -36,5 +37,6 @@ void	pb(t_stack *a, t_stack *b)
 	a->top = a->top->next;
 	temp->next = b->top;
 	b->top = temp;
+	ops->pb++;
 	write(1, "pb\n", 3);
 }
