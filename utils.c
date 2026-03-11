@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/05 19:16:17 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 21:39:37 by gargrigo         ###   ########.fr       */
+/*   Created: 2026/03/06 17:28:04 by gargrigo          #+#    #+#             */
+/*   Updated: 2026/03/06 17:29:11 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <stddef.h>
 
-void	print_stack(t_stack *stack)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_node	*temp;
+	unsigned char	*p;
+	size_t			i;
 
-	if (!stack || !stack->top)
-		return ;
-	temp = stack->top;
-	while (temp)
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		printf("%d\n", temp->num);
-		temp = temp->next;
+		p[i] = (unsigned char)c;
+		i++;
 	}
+	return (s);
 }

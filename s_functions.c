@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_functions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garik <garik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:18:16 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/05 22:56:54 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/11 02:07:54 by garik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,24 @@ static void	swap(t_stack *stack)
 	stack->top = second;
 }
 
-void	sa(t_stack *a)
+void	sa(t_stack *a, t_ops *ops)
 {
 	swap(a);
+	ops->sa++;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, t_ops *ops)
 {
 	swap(b);
+	ops->sb++;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, t_ops *ops)
 {
 	swap(a);
 	swap(b);
+	ops->ss++;
 	write(1, "ss\n", 3);
 }
