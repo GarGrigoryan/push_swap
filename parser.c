@@ -106,6 +106,13 @@ void	parse_arguments(int argc, char **argv, t_stack *stack_a)
 	while (i < argc)
 	{
 		str_2d = ft_split(argv[i], ' ');
+		if (!str_2d || !str_2d[0])
+		{
+			free_all_mem(str_2d);
+			free_stack(stack_a);
+			write(2, "Error\n", 6);
+			exit(1);
+		}
 		parse_split(str_2d, stack_a);
 		free_all_mem(str_2d);
 		i++;
