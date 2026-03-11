@@ -12,10 +12,18 @@
 
 #include "push_swap.h"
 
-char	**free_all_mem(char **mem_seg, size_t j)
+char	**free_all_mem(char **mem_seg)
 {
-	while (j--)
-		free(mem_seg[j]);
+	int i;
+
+	i = 0;
+	if (!mem_seg)
+		return (NULL);
+	while (mem_seg[i])
+	{
+		free(mem_seg[i]);
+		i++;
+	}
 	free(mem_seg);
 	return (NULL);
 }
@@ -37,9 +45,7 @@ static int	word_counter(char const *s, char c)
 			in_word = 1;
 		}
 		else if (s[i] == c)
-		{
 			in_word = 0;
-		}
 		i++;
 	}
 	return (word_count);
@@ -49,7 +55,7 @@ static char	**filler(char const *s, char c, char **result)
 {
 	int	i;
 	int	j;
-	int	start_index;
+	int	start;
 
 	i = 0;
 	j = 0;
@@ -59,12 +65,13 @@ static char	**filler(char const *s, char c, char **result)
 			i++;
 		if (!s[i])
 			break ;
-		start_index = i;
+		start = i;
 		while (s[i] && s[i] != c)
 			i++;
-		result[j++] = ft_substr(s, start_index, i - start_index);
-		if (!result[j - 1])
-			return (free_all_mem(result, j - 1));
+		result[j] = ft_substr(s, start, i - start);
+		if (!result[j])
+			return (free_all_mem(result));
+		j++;
 	}
 	return (result);
 }
@@ -72,11 +79,38 @@ static char	**filler(char const *s, char c, char **result)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
+	int		words;
 
 	if (!s)
 		return (NULL);
-	result = ft_calloc((word_counter(s, c) + 1), sizeof(char *));
+	words = word_counter(s, c);
+	result = malloc(sizeof(char *) * (words + 1));
 	if (!result)
 		return (NULL);
+	int i = 0;
+	while (i <= words)
+		result[i++] = NULL;
 	return (filler(s, c, result));
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	if (start >= (unsigned int)ft_strlen(s))
+		return (malloc(sizeof(char)));
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
