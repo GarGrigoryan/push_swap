@@ -40,6 +40,7 @@ char	**free_all_mem(char **mem_seg);
 void	free_stack(t_stack *stack);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
+int	ft_isdigit(int x);
 
 t_node	*stack_new(int num);
 void	stack_add_back(t_stack *stack, t_node *new_node);
