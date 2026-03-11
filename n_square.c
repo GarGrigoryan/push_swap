@@ -6,7 +6,7 @@
 /*   By: garik <garik@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 22:16:38 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/11 14:49:41 by garik            ###   ########.fr       */
+/*   Updated: 2026/03/11 15:01:46 by garik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ int	main(void)
 	ops->sa = 0;
 	ops->sb = 0;
 	ops->ss = 0;
-	//int		i = 0;
 
 	node1 = malloc(sizeof(t_node));
 	node2 = malloc(sizeof(t_node));
@@ -131,7 +130,7 @@ int	main(void)
 	node5->next = node6;
 	stack->top = node1;
 	temp = stack->top;
-	print_stack(stack);
+	//print_stack(stack);
 	//sa(stack);
 	//printf("\n");
 	//print_stack(stack);
@@ -142,8 +141,8 @@ int	main(void)
 	//find_min_index(stack), get_stack_length(stack));
 	//printf("max = %d", find_max(stack));
 	sort_n_square(stack, b, ops);
-	print_stack(stack);
-	printf("pa: %d\npb: %d\nra: %d\nrb: %d\nrr: %d\nrra: %d\nrrb: %d\nrrr: %d\nsa: %d\nsb: %d\nss: %d\n", ops->pa, ops->pb, ops->ra, ops->rb, ops->rr, ops->rra, ops->rrb, ops->rrr, ops->sa, ops->sb, ops->ss);
+	//print_stack(stack);
+	//printf("pa: %d\npb: %d\nra: %d\nrb: %d\nrr: %d\nrra: %d\nrrb: %d\nrrr: %d\nsa: %d\nsb: %d\nss: %d\n", ops->pa, ops->pb, ops->ra, ops->rb, ops->rr, ops->rra, ops->rrb, ops->rrr, ops->sa, ops->sb, ops->ss);
 
 	free(node1);
 	free(node2);
