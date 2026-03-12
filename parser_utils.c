@@ -20,6 +20,7 @@ t_node	*stack_new(int num)
 	if (!node)
 		return (NULL);
 	node->num = num;
+    node->index = 0;
 	node->next = NULL;
 	return (node);
 }
@@ -49,4 +50,28 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+void	assign_indexes(t_stack *stack_a)
+{
+	t_node	*curr;
+	t_node	*cmp;
+	int		index;
+
+	if (!stack_a || !stack_a->top)
+		return ;
+	curr = stack_a->top;
+	while (curr)
+	{
+		index = 0;
+		cmp = stack_a->top;
+		while (cmp)
+		{
+			if (curr->num > cmp->num)
+				index++;
+			cmp = cmp->next;
+		}
+		curr->index = index;
+		curr = curr->next;
+	}
 }

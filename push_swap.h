@@ -22,6 +22,7 @@ typedef struct s_node
 {
 	struct s_node	*next;
 	int				num;
+	int				index;
 }	t_node;
 
 typedef struct s_stack
@@ -75,9 +76,17 @@ int		find_min_position(int min, int length);
 int		handle_min_ra(t_stack *a, t_stack *b, int min_ops, t_ops *ops);
 int		handle_min_rra(t_stack *a, t_stack *b, int min_ops, t_ops *s_ops);
 void	sort_3(t_stack *a, t_ops *ops);
+void	sort_n_square(t_stack *a, t_stack *b, t_ops *ops);
 
 void	*ft_memset(void *s, int c, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_split(char const *s, char c);
+
+
+void	assign_indexes(t_stack *stack_a);
+int	get_stack_length(t_stack *a);
+void	sort_radix(t_stack *a, t_stack *b, t_ops *ops);
+void k_sort_distribution(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void push_back_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 #endif

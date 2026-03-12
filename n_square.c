@@ -80,79 +80,79 @@ void	sort_n_square(t_stack *a, t_stack *b, t_ops *ops)
 		pa(a, b, ops);
 }
 
-int	main(void)
-{
-	t_stack	*stack;
-	t_stack *b;
-	t_node	*node1;
-	t_node	*node2;
-	t_node	*node3;
-	t_node	*node4;
-	t_node	*node5;
-	t_node	*node6;
-	t_node	*temp;
-	t_ops	*ops;
+// int	main(void)
+// {
+// 	t_stack	*stack;
+// 	t_stack *b;
+// 	t_node	*node1;
+// 	t_node	*node2;
+// 	t_node	*node3;
+// 	t_node	*node4;
+// 	t_node	*node5;
+// 	t_node	*node6;
+// 	t_node	*temp;
+// 	t_ops	*ops;
 
-	ops = malloc(sizeof(t_ops));
-	ops->pa = 0;
-	ops->pb = 0;
-	ops->ra = 0;
-	ops->rb = 0;
-	ops->rr = 0;
-	ops->rra = 0;
-	ops->rrb = 0;
-	ops->rrr = 0;
-	ops->sa = 0;
-	ops->sb = 0;
-	ops->ss = 0;
+// 	ops = malloc(sizeof(t_ops));
+// 	ops->pa = 0;
+// 	ops->pb = 0;
+// 	ops->ra = 0;
+// 	ops->rb = 0;
+// 	ops->rr = 0;
+// 	ops->rra = 0;
+// 	ops->rrb = 0;
+// 	ops->rrr = 0;
+// 	ops->sa = 0;
+// 	ops->sb = 0;
+// 	ops->ss = 0;
 
-	node1 = malloc(sizeof(t_node));
-	node2 = malloc(sizeof(t_node));
-	node3 = malloc(sizeof(t_node));
-	node4 = malloc(sizeof(t_node));
-	node5 = malloc(sizeof(t_node));
-	node6 = malloc(sizeof(t_node));
-	stack = malloc(sizeof(t_stack));
-	b = malloc(sizeof(t_stack));
-	b->top = NULL;
+// 	node1 = malloc(sizeof(t_node));
+// 	node2 = malloc(sizeof(t_node));
+// 	node3 = malloc(sizeof(t_node));
+// 	node4 = malloc(sizeof(t_node));
+// 	node5 = malloc(sizeof(t_node));
+// 	node6 = malloc(sizeof(t_node));
+// 	stack = malloc(sizeof(t_stack));
+// 	b = malloc(sizeof(t_stack));
+// 	b->top = NULL;
 
-	node1->num = 1248;
-	node2->num = -10;
-	node3->num = 6;
-	node4->num = -5;
-	node5->num = 1124;
-	node6->num = 0;
+// 	node1->num = 1248;
+// 	node2->num = -10;
+// 	node3->num = 6;
+// 	node4->num = -5;
+// 	node5->num = 1124;
+// 	node6->num = 0;
 
-	node1->next = node2;
-	node2->next = node3;
-	node3->next = node4;
-	node4->next = node5;
-	node5->next = node6;
-	stack->top = node1;
-	temp = stack->top;
-	//print_stack(stack);
-	//sa(stack);
-	//printf("\n");
-	//print_stack(stack);
-	// printf("\nmin_index = %d\n", find_min_index(stack));
-	// printf("\nmax_index = %d\n", find_max_index(stack));
-	// printf("\nlength = %d", get_stack_length(stack));
-	//count_operations(find_max_index(stack),
-	//find_min_index(stack), get_stack_length(stack));
-	//printf("max = %d", find_max(stack));
-	sort_n_square(stack, b, ops);
-	//print_stack(stack);
-	//printf("pa: %d\npb: %d\nra: %d\nrb: %d\nrr: %d\nrra: %d\nrrb: %d\nrrr: %d\nsa: %d\nsb: %d\nss: %d\n", ops->pa, ops->pb, ops->ra, ops->rb, ops->rr, ops->rra, ops->rrb, ops->rrr, ops->sa, ops->sb, ops->ss);
+// 	node1->next = node2;
+// 	node2->next = node3;
+// 	node3->next = node4;
+// 	node4->next = node5;
+// 	node5->next = node6;
+// 	stack->top = node1;
+// 	temp = stack->top;
+// 	//print_stack(stack);
+// 	//sa(stack);
+// 	//printf("\n");
+// 	//print_stack(stack);
+// 	// printf("\nmin_index = %d\n", find_min_index(stack));
+// 	// printf("\nmax_index = %d\n", find_max_index(stack));
+// 	// printf("\nlength = %d", get_stack_length(stack));
+// 	//count_operations(find_max_index(stack),
+// 	//find_min_index(stack), get_stack_length(stack));
+// 	//printf("max = %d", find_max(stack));
+// 	sort_n_square(stack, b, ops);
+// 	//print_stack(stack);
+// 	//printf("pa: %d\npb: %d\nra: %d\nrb: %d\nrr: %d\nrra: %d\nrrb: %d\nrrr: %d\nsa: %d\nsb: %d\nss: %d\n", ops->pa, ops->pb, ops->ra, ops->rb, ops->rr, ops->rra, ops->rrb, ops->rrr, ops->sa, ops->sb, ops->ss);
 
-	free(node1);
-	free(node2);
-	free(node3);
-	free(node4);
-	free(node5);
-	free(node6);
-	free(stack);
-	free(b);
-	free(ops);
-	return (0);
+// 	free(node1);
+// 	free(node2);
+// 	free(node3);
+// 	free(node4);
+// 	free(node5);
+// 	free(node6);
+// 	free(stack);
+// 	free(b);
+// 	free(ops);
+// 	return (0);
 
-}
+// }
