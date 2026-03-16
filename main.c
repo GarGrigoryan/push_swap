@@ -34,11 +34,16 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a.top = NULL;
 	stack_b.top = NULL;
-	init_ops(&ops);
-	if (!ops)
-		return (1);
+	
 	parse_arguments(argc, argv, &stack_a);
 	assign_indexes(&stack_a);
+	
+	init_ops(&ops);
+	if (!ops)
+	{
+		free_stack(&stack_a); 
+		return (1);
+	}
 	
 	if (!is_sorted(&stack_a))
 	{
@@ -49,7 +54,7 @@ int	main(int argc, char **argv)
 			sort_3(&stack_a, ops);
 		else if (len <= 5)
 			sort_n_square(&stack_a, &stack_b, ops);
-		else{
+		else {
 			k_sort_distribution(&stack_a, &stack_b, ops);
 			push_back_to_a(&stack_a, &stack_b, ops);
 		}
