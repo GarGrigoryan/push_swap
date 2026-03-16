@@ -18,3 +18,28 @@
   - [ ] [cite_start]Print metrics to `stderr`: Disorder %, Strategy name & complexity, Total Ops, and precise counts for every specific operation (sa, pb, ra, etc.)[cite: 280, 281, 282, 283, 284, 285].
 
 ---
+
+
+## 📂 File Structure & Descriptions
+
+To keep development organized, the source code is divided into logical components:
+
+* **Core & Entry:**
+    * `main.c`: The entry point. Handles the overall flow, algorithm routing, and final memory cleanup.
+* **Parsing & Validation:**
+    * `parser.c`, `parser_utils.c`, `parser_utils2.c`: Reads command-line arguments, converts strings to integers, and checks for errors (invalid characters, overflows, and duplicates).
+* **Sorting Algorithms:**
+    * `k_sort.c`: The Medium ($O(n\sqrt{n})$) sorting logic using chunking.
+    * `radix.c`: The Complex ($O(n \log n)$) sorting logic using bitwise operations.
+    * `n_square.c`, `n_square_utils.c`: The Simple ($O(n^2)$) sorting logic.
+* **Stack Operations (Push_swap rules):**
+    * `p_functions.c`: Push operations (`pa`, `pb`).
+    * `s_functions.c`: Swap operations (`sa`, `sb`, `ss`).
+    * `r_functions.c`, `rr_functions.c`: Rotate and reverse rotate operations.
+    * `ra_rra_handlers.c`: Optimization handlers for combined rotations.
+* **Utilities & Helpers:**
+    * `utils.c`, `stack_utils.c`: List management, node creation, and stack freeing (`free_stack`) functions.
+    * `ft_split.c`, `ft_strncmp.c`: Custom string manipulation.
+    * `print_stack.c`: Debugging tool to visualize the stacks.
+* **Testing:**
+    * `tester.sh`, `checker_linux`: Bash scripts and the official 42 binary for validation.
