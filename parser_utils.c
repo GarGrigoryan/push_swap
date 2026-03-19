@@ -6,7 +6,7 @@
 /*   By: arsezaka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 20:22:24 by arsezaka          #+#    #+#             */
-/*   Updated: 2026/03/11 20:39:37 by arsezaka         ###   ########.fr       */
+/*   Updated: 2026/03/16 22:32:57 by arsezaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node	*stack_new(int num)
 	if (!node)
 		return (NULL);
 	node->num = num;
-    node->index = 0;
+	node->index = 0;
 	node->next = NULL;
 	return (node);
 }

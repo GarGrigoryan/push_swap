@@ -54,20 +54,31 @@ int	ft_atoi(const char *str, int *error)
 	return (check_errors(result, sign, str[i], error));
 }
 
-int	flag_checker(char **argv)
+int	flag_checker(int argc, char **argv, int *strategy, int *bench)
 {
-	if (!argv || !argv[1])
-		return (0);
-	if (!ft_strncmp(argv[1], "--simple", 8))
-		return (1);
-	else if (!ft_strncmp(argv[1], "--medium", 8))
-		return (2);
-	else if (!ft_strncmp(argv[1], "--complex", 8))
-		return (3);
-	else if (!ft_strncmp(argv[1], "--adaptive", 8))
-		return (4);
-	else
-		return (0);
+	int i;
+
+	*strategy = 4;
+	*bench = 0;
+	i = 1;
+
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
+	{
+		if (!ft_strncmp(argv[i], "--simple", 9))
+			*strategy = 1;
+		else if (!ft_strncmp(argv[i], "--medium", 9))
+			*strategy = 2;
+		else if (!ft_strncmp(argv[i], "--complex", 10))
+			*strategy = 3;
+		else if (!ft_strncmp(argv[i], "--adaptive", 11))
+			*strategy = 4;
+		else if (!ft_strncmp(argv[i], "--bench", 8))
+			*bench = 1;
+		else
+			break;
+		i++;
+	}
+	return i;
 }
 
 static void	parse_split(char **str_2d, t_stack *stack_a)
@@ -93,16 +104,15 @@ static void	parse_split(char **str_2d, t_stack *stack_a)
 	}
 }
 
-void	parse_arguments(int argc, char **argv, t_stack *stack_a)
+void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start_idx)
 {
 	int		i;
 	char	**str_2d;
 
 	if (argc < 2)
 		return ;
-	i = 1;
-	if (flag_checker(argv))
-		i = 2;
+	i = start_idx;
+
 	while (i < argc)
 	{
 		str_2d = ft_split(argv[i], ' ');

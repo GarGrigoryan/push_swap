@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "push_swap.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -25,4 +26,49 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	return (s);
+}
+
+float compute_disorder(t_stack *stack_a){
+	t_node *curr;
+	t_node *cmp;
+
+	double mistakes;
+	double total_pairs;
+
+	if(!stack_a || !stack_a->top || !stack_a->top->next)
+		return(0.0f);
+	
+	mistakes = 0;
+	total_pairs= 0;
+	curr = stack_a->top;
+
+		while(curr)
+		{
+			cmp = curr->next;
+			while(cmp){
+				total_pairs++;
+				if(curr->num > cmp->num)
+					mistakes++;
+				cmp = cmp->next;
+			}
+			curr = curr->next;
+		}
+		return ((float)(mistakes / total_pairs));
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
+	long	num;
+
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num = -num;
+	}
+	if (num > 9)
+		ft_putnbr_fd(num / 10, fd);
+	c = (num % 10) + '0';
+	write(fd, &c, 1);
 }

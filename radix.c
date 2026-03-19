@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arsezaka <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/16 22:32:37 by arsezaka          #+#    #+#             */
+/*   Updated: 2026/03/16 22:32:39 by arsezaka         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_max_bits(int max_index)
@@ -23,9 +35,8 @@ void	sort_radix(t_stack *a, t_stack *b, t_ops *ops)
 	while (i < max_bits)
 	{
 		j = 0;
-	while (j++ < size)
+		while (j++ < size)
 		{
-			
 			if (((a->top->index >> i) & 1) == 1)
 				ra(a, ops);
 			else
