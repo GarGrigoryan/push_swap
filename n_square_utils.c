@@ -49,3 +49,33 @@ void	sort_3(t_stack *a, t_ops *ops)
 	else if (first < second && second > third && first > third)
 		rra(a, ops);
 }
+
+void	sort_5(t_stack *a, t_stack *b, t_ops *ops)
+{
+	int	min_pos;
+	int	len;
+
+	len = get_stack_length(a);
+	min_pos = find_min_index(a);
+	if (min_pos <= len / 2)
+		while (min_pos-- > 0)
+			ra(a, ops);
+	else
+		while (min_pos++ < len)
+			rra(a, ops);
+	pb(a, b, ops);
+
+	len = get_stack_length(a);
+	min_pos = find_min_index(a);
+	if (min_pos <= len / 2)
+		while (min_pos-- > 0)
+			ra(a, ops);
+	else
+		while (min_pos++ < len)
+			rra(a, ops);
+	pb(a, b, ops);
+
+	sort_3(a, ops);
+	pa(a, b, ops);
+	pa(a, b, ops);
+}
