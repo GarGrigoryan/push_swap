@@ -93,5 +93,7 @@ void				push_back_to_a(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
 float compute_disorder(t_stack *stack_a);
 void	ft_putnbr_fd(int n, int fd);
+void	sort_5(t_stack *a, t_stack *b, t_ops *ops);
+int		find_min_index(t_stack *a);
 
 #endif
