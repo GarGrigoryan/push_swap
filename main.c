@@ -56,6 +56,8 @@ int	main(int argc, char **argv)
 			sa(&stack_a, ops);
 		else if (len == 3)
 			sort_3(&stack_a, ops);
+		else if (len <= 5)
+			sort_5(&stack_a, &stack_b, ops);
 		else if (strategy == 1 || (strategy == 4 && disorder < 0.2f))
 			sort_n_square(&stack_a, &stack_b, ops); 
 		else if (strategy == 3 || (strategy == 4 && disorder >= 0.5f))
