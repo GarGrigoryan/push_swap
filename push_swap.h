@@ -95,5 +95,6 @@ float compute_disorder(t_stack *stack_a);
 void	ft_putnbr_fd(int n, int fd);
 void	sort_5(t_stack *a, t_stack *b, t_ops *ops);
 int		find_min_index(t_stack *a);
+void	print_bench(t_ops *ops, float disorder, int strategy, int len);
 
 #endif
