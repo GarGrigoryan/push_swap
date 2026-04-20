@@ -27,14 +27,14 @@ All core work completed before GSD tracking:
 
 **Milestone Goal:** Full benchmark output with disorder%, strategy, and per-op counts; --count-only flag for scripted evaluation; Makefile and header cleanup.
 
-- [x] **Phase 1: Benchmark Output** - `--bench` prints complete stats in correct format (completed 2026-04-20)
+- [ ] **Phase 1: Benchmark Output** - `--bench` prints complete stats in correct format; stdout empty during bench (gap closure in progress)
 - [ ] **Phase 2: Count-Only Flag** - `--count-only` suppresses op output and prints total
 - [ ] **Phase 3: Cleanup** - Makefile, utils.c, and header pruned of dead code
 
 ## Phase Details
 
 ### Phase 1: Benchmark Output
-**Goal**: Running `--bench` shows disorder percentage, strategy name, total op count, and individual op counts in correct format
+**Goal**: Running `--bench` shows disorder percentage, strategy name, total op count, and individual op counts in correct format; stdout is empty during bench mode
 **Depends on**: Phase 0 (pre-GSD complete)
 **Requirements**: BENCH-01, BENCH-02, BENCH-03, BENCH-04, BENCH-05
 **Success Criteria** (what must be TRUE):
@@ -42,10 +42,12 @@ All core work completed before GSD tracking:
   2. `./push_swap --bench 5 3 1 4 2` prints the strategy name that was actually used (e.g., `Adaptive / O(n√n)`)
   3. `./push_swap --bench 5 3 1 4 2` prints total operation count and individual counts for all 11 operations
   4. `main.c` stays under 25 lines — benchmark printing logic lives in `bench.c`
-**Plans**: 1 plan
+  5. `./push_swap --bench 5 3 1 4 2 2>/dev/null | wc -l` prints 0 — no op strings to stdout during bench
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Create bench.c with full print_bench output; refactor main.c under 25 lines
+- [x] 01-01-PLAN.md — Create bench.c with full print_bench output; refactor main.c under 25 lines
+- [ ] 01-02-PLAN.md — Gap closure: suppress op stdout during bench via ops->bench field guard (wave 2)
 
 ### Phase 2: Count-Only Flag
 **Goal**: Users can run `./push_swap --count-only <numbers>` to get only the total operation count printed, with no operation strings emitted
@@ -73,6 +75,6 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Benchmark Output | 1/1 | Complete   | 2026-04-20 |
+| 1. Benchmark Output | 1/2 | Gap closure planned | 2026-04-20 (01 done, 02 pending) |
 | 2. Count-Only Flag | 0/TBD | Not started | - |
 | 3. Cleanup | 0/TBD | Not started | - |
