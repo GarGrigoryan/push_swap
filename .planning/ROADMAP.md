@@ -27,7 +27,7 @@ All core work completed before GSD tracking:
 
 **Milestone Goal:** Full benchmark output with disorder%, strategy, and per-op counts; --count-only flag for scripted evaluation; Makefile and header cleanup.
 
-- [ ] **Phase 1: Benchmark Output** - `--bench` prints complete stats in correct format
+- [x] **Phase 1: Benchmark Output** - `--bench` prints complete stats in correct format (completed 2026-04-20)
 - [ ] **Phase 2: Count-Only Flag** - `--count-only` suppresses op output and prints total
 - [ ] **Phase 3: Cleanup** - Makefile, utils.c, and header pruned of dead code
 
@@ -73,6 +73,6 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Benchmark Output | 0/1 | Not started | - |
+| 1. Benchmark Output | 1/1 | Complete   | 2026-04-20 |
 | 2. Count-Only Flag | 0/TBD | Not started | - |
 | 3. Cleanup | 0/TBD | Not started | - |

@@ -7,11 +7,11 @@
 
 ### Benchmark Output
 
-- [ ] **BENCH-01**: `--bench` output includes disorder percentage formatted as `XX.XX%`
-- [ ] **BENCH-02**: `--bench` output includes strategy name based on actual strategy used (e.g. `Adaptive / O(n√n)`)
-- [ ] **BENCH-03**: `--bench` output includes total operation count (sum of all 11 op counters)
-- [ ] **BENCH-04**: `--bench` output includes individual counts for all 11 operations (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr)
-- [ ] **BENCH-05**: `print_bench` logic extracted into `bench.c` helper to keep `main` under 25 lines
+- [x] **BENCH-01**: `--bench` output includes disorder percentage formatted as `XX.XX%`
+- [x] **BENCH-02**: `--bench` output includes strategy name based on actual strategy used (e.g. `Adaptive / O(n√n)`)
+- [x] **BENCH-03**: `--bench` output includes total operation count (sum of all 11 op counters)
+- [x] **BENCH-04**: `--bench` output includes individual counts for all 11 operations (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr)
+- [x] **BENCH-05**: `print_bench` logic extracted into `bench.c` helper to keep `main` under 25 lines
 
 ### Count-Only Flag
 
@@ -42,11 +42,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BENCH-01 | Phase 1 | Pending |
-| BENCH-02 | Phase 1 | Pending |
-| BENCH-03 | Phase 1 | Pending |
-| BENCH-04 | Phase 1 | Pending |
-| BENCH-05 | Phase 1 | Pending |
+| BENCH-01 | Phase 1 | Complete |
+| BENCH-02 | Phase 1 | Complete |
+| BENCH-03 | Phase 1 | Complete |
+| BENCH-04 | Phase 1 | Complete |
+| BENCH-05 | Phase 1 | Complete |
 | COUNT-01 | Phase 2 | Pending |
 | COUNT-02 | Phase 2 | Pending |
 | COUNT-03 | Phase 2 | Pending |
