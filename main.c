@@ -62,6 +62,7 @@ static void	run(int argc, char **argv)
 	init_ops(&ops);
 	if (!ops)
 		return (free_stack(&stack_a));
+	ops->bench = bench;
 	disorder = compute_disorder(&stack_a);
 	len = get_stack_length(&stack_a);
 	if (!is_sorted(&stack_a))

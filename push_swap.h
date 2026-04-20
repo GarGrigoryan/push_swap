@@ -43,6 +43,7 @@ typedef struct s_ops
 	int				sa;
 	int				sb;
 	int				ss;
+	int				bench;
 }					t_ops;
 
 void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start_idx);
