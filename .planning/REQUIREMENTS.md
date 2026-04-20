@@ -15,10 +15,10 @@
 
 ### Count-Only Flag
 
-- [ ] **COUNT-01**: `t_ops` struct has `count_only` integer field in `push_swap.h`
-- [ ] **COUNT-02**: `flag_checker` in `parser.c` parses `--count-only` flag and sets `ops->count_only = 1`
-- [ ] **COUNT-03**: All 11 operation functions (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`) skip `write()` when `ops->count_only` is set
-- [ ] **COUNT-04**: Program prints total operation count to stdout after sorting when `--count-only` is given
+- [x] **COUNT-01**: `t_ops` struct has `count_only` integer field in `push_swap.h`
+- [x] **COUNT-02**: `flag_checker` in `parser.c` parses `--count-only` flag and sets `ops->count_only = 1`
+- [x] **COUNT-03**: All 11 operation functions (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`) skip `write()` when `ops->count_only` is set
+- [x] **COUNT-04**: Program prints total operation count to stdout after sorting when `--count-only` is given
 
 ### Cleanup
 
@@ -47,10 +47,10 @@
 | BENCH-03 | Phase 1 | Complete |
 | BENCH-04 | Phase 1 | Complete |
 | BENCH-05 | Phase 1 | Complete |
-| COUNT-01 | Phase 2 | Pending |
-| COUNT-02 | Phase 2 | Pending |
-| COUNT-03 | Phase 2 | Pending |
-| COUNT-04 | Phase 2 | Pending |
+| COUNT-01 | Phase 2 | Complete |
+| COUNT-02 | Phase 2 | Complete |
+| COUNT-03 | Phase 2 | Complete |
+| COUNT-04 | Phase 2 | Complete |
 | CLEAN-01 | Phase 3 | Pending |
 | CLEAN-02 | Phase 3 | Pending |
 | CLEAN-03 | Phase 3 | Pending |

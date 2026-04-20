@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Benchmark + Count-Only
 status: planning
-stopped_at: Completed 01-benchmark-output-01-02-PLAN.md
-last_updated: "2026-04-20T20:49:16.424Z"
+stopped_at: Completed 02-count-only-flag-02-01-PLAN.md
+last_updated: "2026-04-20T21:06:06.432Z"
 last_activity: 2026-04-20 — Roadmap created for milestone v1.1
 progress:
   total_phases: 4
-  completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  completed_phases: 2
+  total_plans: 3
+  completed_plans: 3
   percent: 100
 ---
 
@@ -52,6 +52,7 @@ Progress: [██████████] 100%
 *Updated after each plan completion*
 | Phase 01-benchmark-output P01 | 3 | 2 tasks | 4 files |
 | Phase 01-benchmark-output P02 | 4 | 2 tasks | 6 files |
+| Phase 02-count-only-flag P01 | 2 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -64,6 +65,9 @@ Progress: [██████████] 100%
 - [Phase 01-benchmark-output]: print_bench outputs all 5 benchmark lines to fd 2 (stderr) via write() and ft_putnbr_fd()
 - [Phase 01-benchmark-output]: Guard write() calls with if (!ops->bench) inline — minimal diff, norminette-safe, no signature changes
 - [Phase 01-benchmark-output]: bench field placed last in t_ops, zeroed by ft_memset in init_ops — no init_ops changes required
+- [Phase 02-count-only-flag]: count_only field placed last in t_ops after bench — zeroed by existing ft_memset, no init_ops changes needed
+- [Phase 02-count-only-flag]: print_count() added to bench.c (not new file) — keeps output helpers together, avoids Makefile churn
+- [Phase 02-count-only-flag]: ft_strncmp n=13 for --count-only (length 12 + 1) — established codebase convention for prefix-match safety
 
 ### Pending Todos
 
@@ -76,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T20:47:00.034Z
-Stopped at: Completed 01-benchmark-output-01-02-PLAN.md
+Last session: 2026-04-20T21:06:06.431Z
+Stopped at: Completed 02-count-only-flag-02-01-PLAN.md
 Resume file: None
