@@ -42,7 +42,10 @@ All core work completed before GSD tracking:
   2. `./push_swap --bench 5 3 1 4 2` prints the strategy name that was actually used (e.g., `Adaptive / O(n√n)`)
   3. `./push_swap --bench 5 3 1 4 2` prints total operation count and individual counts for all 11 operations
   4. `main.c` stays under 25 lines — benchmark printing logic lives in `bench.c`
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Create bench.c with full print_bench output; refactor main.c under 25 lines
 
 ### Phase 2: Count-Only Flag
 **Goal**: Users can run `./push_swap --count-only <numbers>` to get only the total operation count printed, with no operation strings emitted
@@ -70,6 +73,6 @@ All core work completed before GSD tracking:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Benchmark Output | 0/TBD | Not started | - |
+| 1. Benchmark Output | 0/1 | Not started | - |
 | 2. Count-Only Flag | 0/TBD | Not started | - |
 | 3. Cleanup | 0/TBD | Not started | - |
