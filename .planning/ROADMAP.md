@@ -57,7 +57,10 @@ Plans:
   1. `./push_swap --count-only 5 3 1 4 2` prints a single integer (total op count) and nothing else to stdout
   2. `./push_swap --count-only 5 3 1 4 2` produces no `sa`, `pb`, `ra` etc. lines — operation strings are fully suppressed
   3. `t_ops` struct in `push_swap.h` has a `count_only` field and `flag_checker` sets it when `--count-only` is given
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Add count_only field, extend flag_checker, update write guards, wire print_count in run()
 
 ### Phase 3: Cleanup
 **Goal**: Codebase compiles cleanly with compute_disorder linked, no duplicate functions, and no stale prototypes in the header
@@ -76,5 +79,5 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Benchmark Output | 2/2 | Complete   | 2026-04-20 |
-| 2. Count-Only Flag | 0/TBD | Not started | - |
+| 2. Count-Only Flag | 0/1 | Not started | - |
 | 3. Cleanup | 0/TBD | Not started | - |
