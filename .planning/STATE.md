@@ -4,7 +4,7 @@ milestone: v1.1
 milestone_name: Benchmark + Count-Only
 status: planning
 stopped_at: Completed 02-count-only-flag-02-01-PLAN.md
-last_updated: "2026-04-20T21:06:06.432Z"
+last_updated: "2026-04-20T21:07:59.651Z"
 last_activity: 2026-04-20 — Roadmap created for milestone v1.1
 progress:
   total_phases: 4
