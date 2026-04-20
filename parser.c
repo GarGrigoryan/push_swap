@@ -54,14 +54,15 @@ int	ft_atoi(const char *str, int *error)
 	return (check_errors(result, sign, str[i], error));
 }
 
-int	flag_checker(int argc, char **argv, int *strategy, int *bench)
+int	flag_checker(int argc, char **argv, int *strategy, int *bench,
+		int *count_only)
 {
-	int i;
+	int	i;
 
 	*strategy = 4;
 	*bench = 0;
+	*count_only = 0;
 	i = 1;
-
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
 		if (!ft_strncmp(argv[i], "--simple", 9))
@@ -74,11 +75,13 @@ int	flag_checker(int argc, char **argv, int *strategy, int *bench)
 			*strategy = 4;
 		else if (!ft_strncmp(argv[i], "--bench", 8))
 			*bench = 1;
+		else if (!ft_strncmp(argv[i], "--count-only", 13))
+			*count_only = 1;
 		else
 			break;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
 static void	parse_split(char **str_2d, t_stack *stack_a)

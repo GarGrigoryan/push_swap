@@ -44,12 +44,13 @@ typedef struct s_ops
 	int				sb;
 	int				ss;
 	int				bench;
+	int				count_only;
 }					t_ops;
 
 void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start_idx);
 int					ft_atoi(const char *str, int *error);
 int					is_duplicate(t_node *stack, int num);
-int	flag_checker(int argc, char **argv, int *strategy, int *bench);
+int	flag_checker(int argc, char **argv, int *strategy, int *bench, int *count_only);
 char				**free_all_mem(char **mem_seg);
 void				free_stack(t_stack *stack);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
