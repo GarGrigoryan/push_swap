@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Benchmark + Count-Only
 status: planning
-stopped_at: Completed 01-benchmark-output-01-01-PLAN.md
-last_updated: "2026-04-20T20:13:35.458Z"
+stopped_at: Completed 01-benchmark-output-01-02-PLAN.md
+last_updated: "2026-04-20T20:47:00.035Z"
 last_activity: 2026-04-20 — Roadmap created for milestone v1.1
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 1
-  completed_plans: 1
+  total_plans: 2
+  completed_plans: 2
   percent: 100
 ---
 
@@ -51,6 +51,7 @@ Progress: [██████████] 100%
 
 *Updated after each plan completion*
 | Phase 01-benchmark-output P01 | 3 | 2 tasks | 4 files |
+| Phase 01-benchmark-output P02 | 4 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -61,6 +62,8 @@ Progress: [██████████] 100%
 - Pre-roadmap: Add count_only field to t_ops struct — minimal change; all op functions already receive ops pointer
 - [Phase 01-benchmark-output]: Extract run() and sort_dispatch() static helpers to reduce main() to 6 lines — cleaner than inline compression tricks
 - [Phase 01-benchmark-output]: print_bench outputs all 5 benchmark lines to fd 2 (stderr) via write() and ft_putnbr_fd()
+- [Phase 01-benchmark-output]: Guard write() calls with if (!ops->bench) inline — minimal diff, norminette-safe, no signature changes
+- [Phase 01-benchmark-output]: bench field placed last in t_ops, zeroed by ft_memset in init_ops — no init_ops changes required
 
 ### Pending Todos
 
@@ -73,6 +76,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T20:13:35.456Z
-Stopped at: Completed 01-benchmark-output-01-01-PLAN.md
+Last session: 2026-04-20T20:47:00.034Z
+Stopped at: Completed 01-benchmark-output-01-02-PLAN.md
 Resume file: None
