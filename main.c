@@ -51,24 +51,28 @@ static void	run(int argc, char **argv)
 	float	disorder;
 	int		strategy;
 	int		bench;
+	int		count_only;
 	int		len;
 	int		start_idx;
 
 	stack_a.top = NULL;
 	stack_b.top = NULL;
-	start_idx = flag_checker(argc, argv, &strategy, &bench);
+	start_idx = flag_checker(argc, argv, &strategy, &bench, &count_only);
 	parse_arguments(argc, argv, &stack_a, start_idx);
 	assign_indexes(&stack_a);
 	init_ops(&ops);
 	if (!ops)
 		return (free_stack(&stack_a));
 	ops->bench = bench;
+	ops->count_only = count_only;
 	disorder = compute_disorder(&stack_a);
 	len = get_stack_length(&stack_a);
 	if (!is_sorted(&stack_a))
 		sort_dispatch(&stack_a, &stack_b, ops, len, strategy, disorder);
 	if (bench == 1)
 		print_bench(ops, disorder, strategy, len);
+	if (count_only)
+		print_count(ops);
 	free_stack(&stack_a);
 	free(ops);
 }

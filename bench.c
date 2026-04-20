@@ -90,3 +90,13 @@ void	print_bench(t_ops *ops, float disorder, int strategy, int len)
 	print_ops_line1(ops, 2);
 	print_ops_line2(ops, 2);
 }
+
+void	print_count(t_ops *ops)
+{
+	int	total;
+
+	total = ops->pa + ops->pb + ops->ra + ops->rb + ops->rr
+		+ ops->rra + ops->rrb + ops->rrr + ops->sa + ops->sb + ops->ss;
+	ft_putnbr_fd(total, 1);
+	write(1, "\n", 1);
+}
