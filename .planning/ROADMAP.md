@@ -70,7 +70,10 @@ Plans:
   1. `make` succeeds and `compute_disorder` is available at link time (compute_disorder.c is in Makefile SRC)
   2. `utils.c` contains no `compute_disorder` definition — the duplicate is gone
   3. `push_swap.h` has no `find_min_position` prototype
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 03-01-PLAN.md — Delete compute_disorder from utils.c, remove find_min_position from header, add compute_disorder.c to Makefile SRC
 
 ## Progress
 
@@ -80,4 +83,4 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Benchmark Output | 2/2 | Complete   | 2026-04-20 |
 | 2. Count-Only Flag | 0/1 | Complete    | 2026-04-20 |
-| 3. Cleanup | 0/TBD | Not started | - |
+| 3. Cleanup | 0/1 | Not started | - |
