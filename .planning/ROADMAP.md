@@ -2,17 +2,13 @@
 
 ## Milestones
 
-- **v1.0 Core** - Phases 0 (pre-GSD, complete)
-- **v1.1 Benchmark + Count-Only** - Phases 1-3 (in progress)
+- ✅ **v1.0 Core** — Phase 0 (pre-GSD, shipped)
+- ✅ **v1.1 Benchmark + Count-Only** — Phases 1–3 (shipped 2026-04-23)
 
 ## Phases
 
 <details>
-<summary>v1.0 Core (Phase 0) - pre-GSD, complete</summary>
-
-### Phase 0: Core Implementation
-**Goal**: Sorting program is complete and operational
-**Plans**: pre-GSD
+<summary>✅ v1.0 Core (Phase 0) — pre-GSD, complete</summary>
 
 All core work completed before GSD tracking:
 - [x] Three sorting strategies (n², k-sort, radix)
@@ -23,64 +19,21 @@ All core work completed before GSD tracking:
 
 </details>
 
-### v1.1 Benchmark + Count-Only (In Progress)
+<details>
+<summary>✅ v1.1 Benchmark + Count-Only (Phases 1–3) — SHIPPED 2026-04-23</summary>
 
-**Milestone Goal:** Full benchmark output with disorder%, strategy, and per-op counts; --count-only flag for scripted evaluation; Makefile and header cleanup.
+- [x] Phase 1: Benchmark Output (2/2 plans) — completed 2026-04-20
+- [x] Phase 2: Count-Only Flag (1/1 plan) — completed 2026-04-20
+- [x] Phase 3: Cleanup (1/1 plan) — completed 2026-04-23
 
-- [x] **Phase 1: Benchmark Output** - `--bench` prints complete stats in correct format; stdout empty during bench (gap closure in progress) (completed 2026-04-20)
-- [x] **Phase 2: Count-Only Flag** - `--count-only` suppresses op output and prints total (completed 2026-04-20)
-- [x] **Phase 3: Cleanup** - Makefile, utils.c, and header pruned of dead code (completed 2026-04-23)
+Full archive: `.planning/milestones/v1.1-ROADMAP.md`
 
-## Phase Details
-
-### Phase 1: Benchmark Output
-**Goal**: Running `--bench` shows disorder percentage, strategy name, total op count, and individual op counts in correct format; stdout is empty during bench mode
-**Depends on**: Phase 0 (pre-GSD complete)
-**Requirements**: BENCH-01, BENCH-02, BENCH-03, BENCH-04, BENCH-05
-**Success Criteria** (what must be TRUE):
-  1. `./push_swap --bench 5 3 1 4 2` prints disorder percentage formatted as `XX.XX%`
-  2. `./push_swap --bench 5 3 1 4 2` prints the strategy name that was actually used (e.g., `Adaptive / O(n√n)`)
-  3. `./push_swap --bench 5 3 1 4 2` prints total operation count and individual counts for all 11 operations
-  4. `main.c` stays under 25 lines — benchmark printing logic lives in `bench.c`
-  5. `./push_swap --bench 5 3 1 4 2 2>/dev/null | wc -l` prints 0 — no op strings to stdout during bench
-**Plans**: 2 plans
-
-Plans:
-- [x] 01-01-PLAN.md — Create bench.c with full print_bench output; refactor main.c under 25 lines
-- [ ] 01-02-PLAN.md — Gap closure: suppress op stdout during bench via ops->bench field guard (wave 2)
-
-### Phase 2: Count-Only Flag
-**Goal**: Users can run `./push_swap --count-only <numbers>` to get only the total operation count printed, with no operation strings emitted
-**Depends on**: Phase 1
-**Requirements**: COUNT-01, COUNT-02, COUNT-03, COUNT-04
-**Success Criteria** (what must be TRUE):
-  1. `./push_swap --count-only 5 3 1 4 2` prints a single integer (total op count) and nothing else to stdout
-  2. `./push_swap --count-only 5 3 1 4 2` produces no `sa`, `pb`, `ra` etc. lines — operation strings are fully suppressed
-  3. `t_ops` struct in `push_swap.h` has a `count_only` field and `flag_checker` sets it when `--count-only` is given
-**Plans**: 1 plan
-
-Plans:
-- [ ] 02-01-PLAN.md — Add count_only field, extend flag_checker, update write guards, wire print_count in run()
-
-### Phase 3: Cleanup
-**Goal**: Codebase compiles cleanly with compute_disorder linked, no duplicate functions, and no stale prototypes in the header
-**Depends on**: Phase 2
-**Requirements**: CLEAN-01, CLEAN-02, CLEAN-03
-**Success Criteria** (what must be TRUE):
-  1. `make` succeeds and `compute_disorder` is available at link time (compute_disorder.c is in Makefile SRC)
-  2. `utils.c` contains no `compute_disorder` definition — the duplicate is gone
-  3. `push_swap.h` has no `find_min_position` prototype
-**Plans**: 1 plan
-
-Plans:
-- [x] 03-01-PLAN.md — Delete compute_disorder from utils.c, remove find_min_position from header, add compute_disorder.c to Makefile SRC
+</details>
 
 ## Progress
 
-**Execution Order:** 1 -> 2 -> 3
-
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Benchmark Output | 2/2 | Complete   | 2026-04-20 |
-| 2. Count-Only Flag | 0/1 | Complete    | 2026-04-20 |
-| 3. Cleanup | 1/1 | Complete    | 2026-04-23 |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Benchmark Output | v1.1 | 2/2 | Complete | 2026-04-20 |
+| 2. Count-Only Flag | v1.1 | 1/1 | Complete | 2026-04-20 |
+| 3. Cleanup | v1.1 | 1/1 | Complete | 2026-04-23 |
