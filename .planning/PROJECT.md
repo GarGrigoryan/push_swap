@@ -20,10 +20,15 @@ The program must sort any valid integer input correctly using the minimum number
 
 ### Active
 
-- [ ] Benchmark output in correct format (disorder%, strategy name, all op counts)
-- [ ] --count-only flag that suppresses operation output and prints only total count
-- [ ] compute_disorder.c added to Makefile SRC
-- [ ] Unused find_min_position prototype removed from push_swap.h
+None — milestone v1.1 complete.
+
+### Validated in v1.1
+
+- ✓ Benchmark output in correct format (disorder%, strategy name, all op counts) — Phase 1
+- ✓ --count-only flag that suppresses operation output and prints only total count — Phase 2
+- ✓ compute_disorder.c added to Makefile SRC — Phase 3
+- ✓ Unused find_min_position prototype removed from push_swap.h — Phase 3
+- ✓ Duplicate compute_disorder removed from utils.c — Phase 3
 
 ### Out of Scope
 
@@ -35,8 +40,8 @@ The program must sort any valid integer input correctly using the minimum number
 
 - Language: C (C99/C11 compatible, compiled with cc -Wall -Wextra -Werror)
 - No external libraries; only write() and custom helpers allowed
-- Makefile compiles all .c files in SRC variable; compute_disorder.c is missing from SRC
-- utils.c contains a duplicate/broken compute_disorder — should be removed (Option A from ISSUES.md)
+- Makefile compiles all .c files in SRC variable; compute_disorder.c added in Phase 3
+- utils.c duplicate compute_disorder removed in Phase 3 — clean, no stale symbols
 - 11 operation functions spread across s_functions.c, p_functions.c, r_functions.c, rr_functions.c
 - Benchmark output currently only prints "Benchmark: Total moves = N" — needs full format
 - Defense evaluation checks: norminette, make, valgrind, error management, strategy flags, sort correctness, benchmark mode, 100/500 number tests, live coding
@@ -52,9 +57,9 @@ The program must sort any valid integer input correctly using the minimum number
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Remove compute_disorder from utils.c (Option A) | Clean separation; compute_disorder.c already exists and is correct | — Pending |
-| Add bench.c for print_bench function | Keeps main.c under 25 lines; isolated benchmark logic | — Pending |
-| Add count_only field to t_ops struct | Minimal change; all op functions already receive ops pointer | — Pending |
+| Remove compute_disorder from utils.c (Option A) | Clean separation; compute_disorder.c already exists and is correct | Done — Phase 3 |
+| Add bench.c for print_bench function | Keeps main.c under 25 lines; isolated benchmark logic | Done — Phase 1 |
+| Add count_only field to t_ops struct | Minimal change; all op functions already receive ops pointer | Done — Phase 2 |
 
 ---
-*Last updated: 2026-04-20 after milestone v1.1 initialization*
+*Last updated: 2026-04-23 — milestone v1.1 complete (all 3 phases done)*
