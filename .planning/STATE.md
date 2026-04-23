@@ -21,7 +21,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Correct sorting with minimum operations to pass 42 evaluation
-**Current focus:** Milestone v1.1 — Phase 1: Benchmark Output
+**Current focus:** Milestone v1.1 complete — all 3 phases done
 
 ## Current Position
 
@@ -75,11 +75,10 @@ None yet.
 
 ### Blockers/Concerns
 
-- compute_disorder.c is not in Makefile SRC — Phase 3 must fix this before any eval run
-- utils.c has a duplicate/broken compute_disorder — linker error risk if compute_disorder.c is added before utils.c is cleaned
+None — milestone v1.1 complete.
 
 ## Session Continuity
 
-Last session: 2026-04-20T21:13:22.035Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-cleanup/03-CONTEXT.md
+Last session: 2026-04-23
+Stopped at: Phase 3 UAT complete — 4/4 tests passed, milestone v1.1 verified
+Resume file: None
