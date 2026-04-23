@@ -29,7 +29,7 @@ All core work completed before GSD tracking:
 
 - [x] **Phase 1: Benchmark Output** - `--bench` prints complete stats in correct format; stdout empty during bench (gap closure in progress) (completed 2026-04-20)
 - [x] **Phase 2: Count-Only Flag** - `--count-only` suppresses op output and prints total (completed 2026-04-20)
-- [ ] **Phase 3: Cleanup** - Makefile, utils.c, and header pruned of dead code
+- [x] **Phase 3: Cleanup** - Makefile, utils.c, and header pruned of dead code (completed 2026-04-23)
 
 ## Phase Details
 
@@ -73,7 +73,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 03-01-PLAN.md — Delete compute_disorder from utils.c, remove find_min_position from header, add compute_disorder.c to Makefile SRC
+- [x] 03-01-PLAN.md — Delete compute_disorder from utils.c, remove find_min_position from header, add compute_disorder.c to Makefile SRC
 
 ## Progress
 
@@ -83,4 +83,4 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Benchmark Output | 2/2 | Complete   | 2026-04-20 |
 | 2. Count-Only Flag | 0/1 | Complete    | 2026-04-20 |
-| 3. Cleanup | 0/1 | Not started | - |
+| 3. Cleanup | 1/1 | Complete    | 2026-04-23 |

@@ -22,9 +22,9 @@
 
 ### Cleanup
 
-- [ ] **CLEAN-01**: `compute_disorder.c` added to Makefile `SRC` variable
-- [ ] **CLEAN-02**: Duplicate/broken `compute_disorder` function removed from `utils.c`
-- [ ] **CLEAN-03**: Unused `find_min_position` prototype removed from `push_swap.h`
+- [x] **CLEAN-01**: `compute_disorder.c` added to Makefile `SRC` variable
+- [x] **CLEAN-02**: Duplicate/broken `compute_disorder` function removed from `utils.c`
+- [x] **CLEAN-03**: Unused `find_min_position` prototype removed from `push_swap.h`
 
 ## Future Requirements
 
@@ -51,9 +51,9 @@
 | COUNT-02 | Phase 2 | Complete |
 | COUNT-03 | Phase 2 | Complete |
 | COUNT-04 | Phase 2 | Complete |
-| CLEAN-01 | Phase 3 | Pending |
-| CLEAN-02 | Phase 3 | Pending |
-| CLEAN-03 | Phase 3 | Pending |
+| CLEAN-01 | Phase 3 | Complete |
+| CLEAN-02 | Phase 3 | Complete |
+| CLEAN-03 | Phase 3 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 12 total
