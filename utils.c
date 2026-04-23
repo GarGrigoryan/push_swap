@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "push_swap.h"
 
 void	*ft_memset(void *s, int c, size_t n)
