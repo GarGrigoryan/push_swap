@@ -1,2 +1,10 @@
 push_swap
-push_swap
+*.o
+*.gch
+*.swp
+n_square
+checker_linux
+checker_Mac
+fedora_checker
+.planning/
+tester.sh
