@@ -110,17 +110,18 @@ Implemented in `radix.c`. Elements are assigned zero-based rank indexes, then so
 
 This algorithm is insensitive to initial order and performs consistently on large, chaotic inputs.
 
-Used when: `--complex` flag is set, or adaptive mode detects disorder ≥ 0.5.
+Used when: `--complex` flag is set, or adaptive mode detects disorder ≥ 0.5 **and** n > 500. Below 500 elements radix sort's constant overhead outweighs its asymptotic advantage, so the dispatcher falls back to k-sort.
 
 ### Adaptive — dynamic dispatcher (default)
 
 The dispatcher reads the disorder metric and stack size, then routes:
 
 ```
-len <= 5              → sort_5 (hardcoded optimal)
-disorder < 0.2        → simple sort
-0.2 <= disorder < 0.5 → k-sort (medium)
-disorder >= 0.5       → radix sort (complex)
+len <= 5                           → sort_5 (hardcoded optimal)
+disorder < 0.2                     → simple sort (O(n²))
+0.2 <= disorder < 0.5              → k-sort (O(n√n))
+disorder >= 0.5 AND len > 500      → radix sort (O(n log n))
+disorder >= 0.5 AND len <= 500     → k-sort (O(n√n))
 ```
 
 Running without any flag uses adaptive mode.

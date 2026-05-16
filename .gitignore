@@ -8,3 +8,5 @@ checker_Mac
 fedora_checker
 .planning/
 tester.sh
+print_stack.c
+bench.txt
