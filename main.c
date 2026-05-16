@@ -74,6 +74,7 @@ static void	run(int argc, char **argv)
 	if (count_only)
 		print_count(ops);
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 	free(ops);
 }
 

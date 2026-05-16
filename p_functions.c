@@ -24,7 +24,7 @@ void	pa(t_stack *a, t_stack *b, t_ops *ops)
 	temp->next = a->top;
 	a->top = temp;
 	ops->pa++;
-	if (!ops->bench && !ops->count_only)
+	if (!ops->count_only)
 		write(1, "pa\n", 3);
 }
 
@@ -39,6 +39,6 @@ void	pb(t_stack *a, t_stack *b, t_ops *ops)
 	temp->next = b->top;
 	b->top = temp;
 	ops->pb++;
-	if (!ops->bench && !ops->count_only)
+	if (!ops->count_only)
 		write(1, "pb\n", 3);
 }

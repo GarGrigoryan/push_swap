@@ -37,7 +37,7 @@ void	rra(t_stack *a, t_ops *ops)
 {
 	rrev(a);
 	ops->rra++;
-	if (!ops->bench && !ops->count_only)
+	if (!ops->count_only)
 		write(1, "rra\n", 4);
 }
 
@@ -45,7 +45,7 @@ void	rrb(t_stack *b, t_ops *ops)
 {
 	rrev(b);
 	ops->rrb++;
-	if (!ops->bench && !ops->count_only)
+	if (!ops->count_only)
 		write(1, "rrb\n", 4);
 }
 
@@ -54,6 +54,6 @@ void	rrr(t_stack *a, t_stack *b, t_ops *ops)
 	rrev(a);
 	rrev(b);
 	ops->rrr++;
-	if (!ops->bench && !ops->count_only)
+	if (!ops->count_only)
 		write(1, "rrr\n", 4);
 }
