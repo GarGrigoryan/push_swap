@@ -41,7 +41,9 @@ static void	sort_dispatch(t_stack *a, t_stack *b, t_ops *ops)
 		sa(a, ops);
 	else if (ops->len == 3)
 		sort_3(a, ops);
-	else if (ops->len <= 5)
+	else if (ops->len == 4)
+		sort_n_square(a, b, ops);
+	else if (ops->len == 5)
 		sort_5(a, b, ops);
 	else if (ops->strategy == 1
 		|| (ops->strategy == 4 && ops->disorder < 0.2f))
