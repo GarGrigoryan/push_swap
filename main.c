@@ -69,7 +69,7 @@ static void	run(int argc, char **argv)
 	init_ops(&ops);
 	if (!ops)
 		return (free_stack(&stack_a));
-	parse_arguments(argc, argv, &stack_a, flag_checker(argc, argv, ops));
+	parse_arguments(argc, argv, &stack_a, ops);
 	assign_indexes(&stack_a);
 	ops->len = get_stack_length(&stack_a);
 	ops->disorder = compute_disorder(&stack_a);

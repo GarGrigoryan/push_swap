@@ -83,7 +83,7 @@ int	flag_checker(int argc, char **argv, t_ops *ops)
 	return (i);
 }
 
-static void	parse_split(char **str_2d, t_stack *stack_a)
+static void	parse_split(char **str_2d, t_stack *stack_a, t_ops *ops)
 {
 	int	j;
 	int	num;
@@ -98,6 +98,7 @@ static void	parse_split(char **str_2d, t_stack *stack_a)
 		{
 			free_all_mem(str_2d);
 			free_stack(stack_a);
+			free(ops);
 			write(2, "Error\n", 6);
 			exit(1);
 		}
@@ -106,14 +107,14 @@ static void	parse_split(char **str_2d, t_stack *stack_a)
 	}
 }
 
-void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start)
+void	parse_arguments(int argc, char **argv, t_stack *stack_a, t_ops *ops)
 {
 	int		i;
 	char	**str_2d;
 
 	if (argc < 2)
 		return ;
-	i = start;
+	i = flag_checker(argc, argv, ops);
 	while (i < argc)
 	{
 		str_2d = ft_split(argv[i], ' ');
@@ -121,10 +122,11 @@ void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start)
 		{
 			free_all_mem(str_2d);
 			free_stack(stack_a);
+			free(ops);
 			write(2, "Error\n", 6);
 			exit(1);
 		}
-		parse_split(str_2d, stack_a);
+		parse_split(str_2d, stack_a, ops);
 		free_all_mem(str_2d);
 		i++;
 	}

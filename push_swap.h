@@ -51,7 +51,7 @@ typedef struct s_ops
 	float			disorder;
 }					t_ops;
 
-void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start);
+void	parse_arguments(int argc, char **argv, t_stack *stack_a, t_ops *ops);
 int		ft_atoi(const char *str, int *error);
 int		is_duplicate(t_node *stack, int num);
 int		flag_checker(int argc, char **argv, t_ops *ops);
