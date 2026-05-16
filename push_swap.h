@@ -45,57 +45,57 @@ typedef struct s_ops
 	int				ss;
 	int				bench;
 	int				count_only;
+	int				strategy;
+	int				len;
+	int				start_idx;
+	float			disorder;
 }					t_ops;
 
-void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start_idx);
-int					ft_atoi(const char *str, int *error);
-int					is_duplicate(t_node *stack, int num);
-int	flag_checker(int argc, char **argv, int *strategy, int *bench, int *count_only);
-char				**free_all_mem(char **mem_seg);
-void				free_stack(t_stack *stack);
-char				*ft_substr(char const *s, unsigned int start, size_t len);
-size_t				ft_strlen(const char *s);
-int					ft_isdigit(int x);
+void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start);
+int		ft_atoi(const char *str, int *error);
+int		is_duplicate(t_node *stack, int num);
+int		flag_checker(int argc, char **argv, t_ops *ops);
+char	**free_all_mem(char **mem_seg);
+void	free_stack(t_stack *stack);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *s);
+int		ft_isdigit(int x);
 
-t_node				*stack_new(int num);
-void				stack_add_back(t_stack *stack, t_node *new_node);
+t_node	*stack_new(int num);
+void	stack_add_back(t_stack *stack, t_node *new_node);
 
-void				sa(t_stack *stack, t_ops *ops);
-void				sb(t_stack *stack, t_ops *ops);
-void				ss(t_stack *a, t_stack *b, t_ops *ops);
-void				pa(t_stack *a, t_stack *b, t_ops *ops);
-void				pb(t_stack *a, t_stack *b, t_ops *ops);
-void				ra(t_stack *a, t_ops *ops);
-void				rb(t_stack *b, t_ops *ops);
-void				rr(t_stack *a, t_stack *b, t_ops *ops);
-void				rra(t_stack *a, t_ops *ops);
-void				rrb(t_stack *b, t_ops *ops);
-void				rrr(t_stack *a, t_stack *b, t_ops *ops);
+void	sa(t_stack *stack, t_ops *ops);
+void	sb(t_stack *stack, t_ops *ops);
+void	ss(t_stack *a, t_stack *b, t_ops *ops);
+void	pa(t_stack *a, t_stack *b, t_ops *ops);
+void	pb(t_stack *a, t_stack *b, t_ops *ops);
+void	ra(t_stack *a, t_ops *ops);
+void	rb(t_stack *b, t_ops *ops);
+void	rr(t_stack *a, t_stack *b, t_ops *ops);
+void	rra(t_stack *a, t_ops *ops);
+void	rrb(t_stack *b, t_ops *ops);
+void	rrr(t_stack *a, t_stack *b, t_ops *ops);
 
-int					find_min_ops(int min, int length);
-int					handle_min_ra(t_stack *a, t_stack *b, int min_ops,
-						t_ops *ops);
-int					handle_min_rra(t_stack *a, t_stack *b, int min_ops,
-						t_ops *s_ops);
-void				sort_3(t_stack *a, t_ops *ops);
-void				sort_n_square(t_stack *a, t_stack *b, t_ops *ops);
+int		find_min_ops(int min, int length);
+int		handle_min_ra(t_stack *a, t_stack *b, int min_ops, t_ops *ops);
+int		handle_min_rra(t_stack *a, t_stack *b, int min_ops, t_ops *s_ops);
+void	sort_3(t_stack *a, t_ops *ops);
+void	sort_n_square(t_stack *a, t_stack *b, t_ops *ops);
 
-void				*ft_memset(void *s, int c, size_t n);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				**ft_split(char const *s, char c);
+void	*ft_memset(void *s, int c, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	**ft_split(char const *s, char c);
 
-void				assign_indexes(t_stack *stack_a);
-int					get_stack_length(t_stack *a);
-void				sort_radix(t_stack *a, t_stack *b, t_ops *ops);
-void				k_sort_distribution(t_stack *stack_a, t_stack *stack_b,
-						t_ops *ops);
-void				push_back_to_a(t_stack *stack_a, t_stack *stack_b,
-						t_ops *ops);
-float				compute_disorder(t_stack *stack);
-void				ft_putnbr_fd(int n, int fd);
-void				sort_5(t_stack *a, t_stack *b, t_ops *ops);
-int					find_min_index(t_stack *a);
-void				print_bench(t_ops *ops, float disorder, int strategy, int len);
-void				print_count(t_ops *ops);
+void	assign_indexes(t_stack *stack_a);
+int		get_stack_length(t_stack *a);
+void	sort_radix(t_stack *a, t_stack *b, t_ops *ops);
+void	k_sort_distribution(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void	push_back_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+float	compute_disorder(t_stack *stack);
+void	ft_putnbr_fd(int n, int fd);
+void	sort_5(t_stack *a, t_stack *b, t_ops *ops);
+int		find_min_index(t_stack *a);
+void	print_bench(t_ops *ops);
+void	print_count(t_ops *ops);
 
 #endif

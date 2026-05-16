@@ -77,4 +77,3 @@ void	sort_n_square(t_stack *a, t_stack *b, t_ops *ops)
 	while (b->top)
 		pa(a, b, ops);
 }
-

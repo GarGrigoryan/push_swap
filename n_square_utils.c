@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 03:02:34 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/13 00:05:04 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/16 22:32:04 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sort_3(t_stack *a, t_ops *ops)
 		rra(a, ops);
 }
 
-void	sort_5(t_stack *a, t_stack *b, t_ops *ops)
+static void	push_min_to_b(t_stack *a, t_stack *b, t_ops *ops)
 {
 	int	min_pos;
 	int	len;
@@ -64,17 +64,12 @@ void	sort_5(t_stack *a, t_stack *b, t_ops *ops)
 		while (min_pos++ < len)
 			rra(a, ops);
 	pb(a, b, ops);
+}
 
-	len = get_stack_length(a);
-	min_pos = find_min_index(a);
-	if (min_pos <= len / 2)
-		while (min_pos-- > 0)
-			ra(a, ops);
-	else
-		while (min_pos++ < len)
-			rra(a, ops);
-	pb(a, b, ops);
-
+void	sort_5(t_stack *a, t_stack *b, t_ops *ops)
+{
+	push_min_to_b(a, b, ops);
+	push_min_to_b(a, b, ops);
 	sort_3(a, ops);
 	pa(a, b, ops);
 	pa(a, b, ops);

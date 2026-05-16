@@ -35,18 +35,19 @@ static void	init_ops(t_ops **ops)
 		ft_memset(*ops, 0, sizeof(t_ops));
 }
 
-static void	sort_dispatch(t_stack *a, t_stack *b, t_ops *ops,
-				int len, int strategy, float disorder)
+static void	sort_dispatch(t_stack *a, t_stack *b, t_ops *ops)
 {
-	if (len == 2)
+	if (ops->len == 2)
 		sa(a, ops);
-	else if (len == 3)
+	else if (ops->len == 3)
 		sort_3(a, ops);
-	else if (len <= 5)
+	else if (ops->len <= 5)
 		sort_5(a, b, ops);
-	else if (strategy == 1 || (strategy == 4 && disorder < 0.2f))
+	else if (ops->strategy == 1
+		|| (ops->strategy == 4 && ops->disorder < 0.2f))
 		sort_n_square(a, b, ops);
-	else if (strategy == 3 || (strategy == 4 && disorder >= 0.5f && len > 500))
+	else if (ops->strategy == 3
+		|| (ops->strategy == 4 && ops->disorder >= 0.5f && ops->len > 500))
 		sort_radix(a, b, ops);
 	else
 	{
@@ -60,30 +61,21 @@ static void	run(int argc, char **argv)
 	t_stack	stack_a;
 	t_stack	stack_b;
 	t_ops	*ops;
-	float	disorder;
-	int		strategy;
-	int		bench;
-	int		count_only;
-	int		len;
-	int		start_idx;
 
 	stack_a.top = NULL;
 	stack_b.top = NULL;
-	start_idx = flag_checker(argc, argv, &strategy, &bench, &count_only);
-	parse_arguments(argc, argv, &stack_a, start_idx);
-	assign_indexes(&stack_a);
 	init_ops(&ops);
 	if (!ops)
 		return (free_stack(&stack_a));
-	ops->bench = bench;
-	ops->count_only = count_only;
-	disorder = compute_disorder(&stack_a);
-	len = get_stack_length(&stack_a);
+	parse_arguments(argc, argv, &stack_a, flag_checker(argc, argv, ops));
+	assign_indexes(&stack_a);
+	ops->len = get_stack_length(&stack_a);
+	ops->disorder = compute_disorder(&stack_a);
 	if (!is_sorted(&stack_a))
-		sort_dispatch(&stack_a, &stack_b, ops, len, strategy, disorder);
-	if (bench == 1)
-		print_bench(ops, disorder, strategy, len);
-	if (count_only)
+		sort_dispatch(&stack_a, &stack_b, ops);
+	if (ops->bench)
+		print_bench(ops);
+	if (ops->count_only)
 		print_count(ops);
 	free_stack(&stack_a);
 	free_stack(&stack_b);

@@ -6,7 +6,7 @@
 /*   By: arsezaka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 20:32:32 by arsezaka          #+#    #+#             */
-/*   Updated: 2026/03/11 20:32:34 by arsezaka         ###   ########.fr       */
+/*   Updated: 2026/03/16 22:32:04 by arsezaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,30 @@ int	ft_atoi(const char *str, int *error)
 	return (check_errors(result, sign, str[i], error));
 }
 
-int	flag_checker(int argc, char **argv, int *strategy, int *bench,
-		int *count_only)
+int	flag_checker(int argc, char **argv, t_ops *ops)
 {
 	int	i;
 
-	*strategy = 4;
-	*bench = 0;
-	*count_only = 0;
+	ops->strategy = 4;
+	ops->bench = 0;
+	ops->count_only = 0;
 	i = 1;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
 		if (!ft_strncmp(argv[i], "--simple", 9))
-			*strategy = 1;
+			ops->strategy = 1;
 		else if (!ft_strncmp(argv[i], "--medium", 9))
-			*strategy = 2;
+			ops->strategy = 2;
 		else if (!ft_strncmp(argv[i], "--complex", 10))
-			*strategy = 3;
+			ops->strategy = 3;
 		else if (!ft_strncmp(argv[i], "--adaptive", 11))
-			*strategy = 4;
+			ops->strategy = 4;
 		else if (!ft_strncmp(argv[i], "--bench", 8))
-			*bench = 1;
+			ops->bench = 1;
 		else if (!ft_strncmp(argv[i], "--count-only", 13))
-			*count_only = 1;
+			ops->count_only = 1;
 		else
-			break;
+			break ;
 		i++;
 	}
 	return (i);
@@ -107,15 +106,14 @@ static void	parse_split(char **str_2d, t_stack *stack_a)
 	}
 }
 
-void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start_idx)
+void	parse_arguments(int argc, char **argv, t_stack *stack_a, int start)
 {
 	int		i;
 	char	**str_2d;
 
 	if (argc < 2)
 		return ;
-	i = start_idx;
-
+	i = start;
 	while (i < argc)
 	{
 		str_2d = ft_split(argv[i], ' ');

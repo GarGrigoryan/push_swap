@@ -6,7 +6,7 @@
 /*   By: gargrigo <gargrigo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 17:28:04 by gargrigo          #+#    #+#             */
-/*   Updated: 2026/03/06 17:29:11 by gargrigo         ###   ########.fr       */
+/*   Updated: 2026/03/16 22:32:04 by gargrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,14 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(num / 10, fd);
 	c = (num % 10) + '0';
 	write(fd, &c, 1);
+}
+
+void	print_count(t_ops *ops)
+{
+	int	total;
+
+	total = ops->pa + ops->pb + ops->ra + ops->rb + ops->rr
+		+ ops->rra + ops->rrb + ops->rrr + ops->sa + ops->sb + ops->ss;
+	ft_putnbr_fd(total, 1);
+	write(1, "\n", 1);
 }

@@ -14,7 +14,7 @@
 
 char	**free_all_mem(char **mem_seg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!mem_seg)
@@ -80,6 +80,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		words;
+	int		i;
 
 	if (!s)
 		return (NULL);
@@ -87,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	result = malloc(sizeof(char *) * (words + 1));
 	if (!result)
 		return (NULL);
-	int i = 0;
+	i = 0;
 	while (i <= words)
 		result[i++] = NULL;
 	return (filler(s, c, result));
