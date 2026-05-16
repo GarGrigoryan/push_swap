@@ -72,7 +72,6 @@ void				rra(t_stack *a, t_ops *ops);
 void				rrb(t_stack *b, t_ops *ops);
 void				rrr(t_stack *a, t_stack *b, t_ops *ops);
 
-void				print_stack(t_stack *stack);
 int					find_min_ops(int min, int length);
 int					handle_min_ra(t_stack *a, t_stack *b, int min_ops,
 						t_ops *ops);

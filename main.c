@@ -34,7 +34,7 @@ static void	sort_dispatch(t_stack *a, t_stack *b, t_ops *ops,
 		sort_5(a, b, ops);
 	else if (strategy == 1 || (strategy == 4 && disorder < 0.2f))
 		sort_n_square(a, b, ops);
-	else if (strategy == 3 || (strategy == 4 && disorder >= 0.5f))
+	else if (strategy == 3 || (strategy == 4 && disorder >= 0.5f && len > 500))
 		sort_radix(a, b, ops);
 	else
 	{

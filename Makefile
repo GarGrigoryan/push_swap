@@ -4,7 +4,7 @@ CFLAGS      = -Wall -Wextra -Werror
 SRC         = main.c parser.c parser_utils.c parser_utils2.c \
               ft_split.c ft_strncmp.c p_functions.c s_functions.c \
               r_functions.c rr_functions.c ra_rra_handlers.c \
-              n_square.c n_square_utils.c utils.c print_stack.c radix.c k_sort.c \
+              n_square.c n_square_utils.c utils.c radix.c k_sort.c \
               bench.c compute_disorder.c
 OBJ         = $(SRC:.c=.o)
 
